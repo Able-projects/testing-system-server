@@ -1,0 +1,10 @@
+const express = require('express')
+const QuestionsCtrl = require('../controllers/questionController')
+const router = express.Router()
+const isAuth = require('../validators/isAuth')
+const isAdmin = require('../validators/isAdmin')
+router.post('/questions',isAdmin, QuestionsCtrl.createQuestions)
+router.put('/questions/:id',isAdmin, QuestionsCtrl.updateQuestions)
+router.delete('/questions/:id',isAdmin, QuestionsCtrl.deleteQuestions)
+router.get('/questions',isAuth, QuestionsCtrl.getQuestions)
+module.exports = router

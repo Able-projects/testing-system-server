@@ -1,0 +1,10 @@
+const express = require('express')
+const LevelCtrl = require('../controllers/levelController')
+const router = express.Router()
+const isAuth = require('../validators/isAuth')
+const isAdmin = require('../validators/isAdmin')
+router.post('/level',isAdmin, LevelCtrl.createLevel)
+router.put('/level/:id',isAdmin, LevelCtrl.updateLevel)
+router.delete('/level/:id',isAdmin, LevelCtrl.deleteLevel)
+router.get('/levels',isAuth, LevelCtrl.getLevels)
+module.exports = router

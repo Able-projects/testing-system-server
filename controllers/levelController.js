@@ -20,20 +20,6 @@ createLevel = (req, res) => {
     })
 }
 
-getLevelById = async (req, res) => {
-    await Level.findOne({ _id: req.params.id }, (err, level) => {
-    if (err) {
-        return res.status(400).json({ success: false, error: err })
-    }
-    if (!level) {
-        return res
-        .status(404)
-        .json({ success: false, error: `Level not found` })
-        }
-    return res.status(200).json({ success: true, data: level })
-    }).catch(err => console.log(err))
-}
-
 
 getLevels = async (req, res) => {
     await Level.find({}, (err, levels) => {
@@ -83,7 +69,6 @@ deleteLevel = async (req, res) => {
 
 module.exports = {
     createLevel,
-    getLevelById,
     updateLevel,
     deleteLevel,
     getLevels

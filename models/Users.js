@@ -5,7 +5,8 @@ const User = new Schema(
  name: { type: String, required: true },
  email: { type: String, required: true },
  password: { type: String, required: true },
- rating: { type: Number, required: false }
+ rating: { type: Number, required: false },
+ role: {type: String, required: false , default: 'user'}
  },
  { timestamps: true },
 )
