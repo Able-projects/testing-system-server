@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
-const apiPort = 3000
+const apiPort = 5050
 const db = require('./db')
 const authenticate = require('./validators/auth')
 const userRoutes = require('./routes/userRoutes')
@@ -18,7 +18,10 @@ app.use('/api', levelRoutes)
 app.use('/api', sectionRoutes)
 app.use('/api', questionRoutes)
 app.get('/', (req, res) => {
- res.send('Hello World!')
+ res.send('Hello Worlsd!')
 })
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
+
+
+

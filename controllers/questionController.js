@@ -35,6 +35,21 @@ getQuestions = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+getQuestionsBySL = async (req, res) => {
+    await Questions.find({}, (err, questions) => {
+    if (err) {
+        return res.status(400).json({ success: false, error: err })
+    }
+    if (!questions.length) {
+    return res
+        .status(404)
+        .json({ success: false, error: `questions not found` })
+    }
+    const result = questions.filter(item => item.levelId == req.params.levelId && item.sectionId == req.params.sectionId)
+    return res.status(200).json({ success: true, data: result })
+    }).catch(err => console.log(err))
+}
+
 updateQuestions = async (req, res) => {
     const body = req.body
     if (!body) { return res.status(400).json({ success: false, error: 'You must provide a body to update', }) }
@@ -80,5 +95,6 @@ module.exports = {
     createQuestions,
     updateQuestions,
     deleteQuestions,
-    getQuestions
+    getQuestions,
+    getQuestionsBySL
 }

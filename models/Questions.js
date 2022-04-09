@@ -10,8 +10,8 @@ const Question = new Schema(
     option5: { type: String, required: false },
     answer: { type: String, required: true },
     score: { type: Number, required: true },
-    sectionId: { type: Number, required: true },
-    levelId: { type: Number, required: true },
+    sectionId: { type: String, required: true },
+    levelId: { type: String, required: true },
  },
  { timestamps: true },
 )

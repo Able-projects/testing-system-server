@@ -50,9 +50,9 @@ signInUser = async(req,res) => {
 
         const isMatch = bcrypt.compareSync(body.password, user.password)
 
-        // if (!isMatch) {
-        //     return res.status(400).json({ success: false, error: 'Incorrect Password' })
-        // }
+        if (!isMatch) {
+            return res.status(400).json({ success: false, error: 'Incorrect Password' })
+        }
         const token = await makeJWT(user)
         return res.status(200).json({ success: true, data: user, token })
         }).catch(err => console.log(err))
