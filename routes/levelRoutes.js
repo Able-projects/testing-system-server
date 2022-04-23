@@ -6,5 +6,5 @@ const isAdmin = require('../validators/isAdmin')
 router.post('/level',isAdmin, LevelCtrl.createLevel)
 router.put('/level/:id',isAdmin, LevelCtrl.updateLevel)
 router.delete('/level/:id',isAdmin, LevelCtrl.deleteLevel)
-router.get('/levels',isAuth, LevelCtrl.getLevels)
+router.get('/levels', LevelCtrl.getLevels)
 module.exports = router
