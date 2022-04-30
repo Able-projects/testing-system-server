@@ -6,6 +6,7 @@ const User = new Schema(
  email: { type: String, required: true },
  password: { type: String, required: true },
  rating: { type: Number, required: false },
+ score: {type: Number, default: 0 },
  role: {type: String, required: false , default: 'user'}
  },
  { timestamps: true },
