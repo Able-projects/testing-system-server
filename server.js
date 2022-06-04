@@ -18,7 +18,7 @@ app.use('/api', levelRoutes)
 app.use('/api', sectionRoutes)
 app.use('/api', questionRoutes)
 app.get('/', (req, res) => {
- res.send('Hello Worlsd!')
+ res.send('Welcome to Able testing server!')
 })
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
